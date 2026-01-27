@@ -36,6 +36,7 @@ patch:
     vertical_auto_reverse: false             # 文本竖排模式下，候选窗口位于光标上方时倒序排列：true；false
   
     label_format: " "                      # 标签字符：例如 %s. 效果为 1. 2. 3. ....
+    font_face: "Maruko Gothic CJKsc:medium" # 主字体名称
     mark_text: "|"                           # 标记字符，显示在选中的候选标签前，需要在配色方案中指定颜色；如该项为空字符串 "" 而配色方案中 hilited_mark_color 非透明色，则显示 Windows 11 输入法风格标记
     ascii_tip_follow_cursor: false           # 切换 ASCII 模式时，提示跟随鼠标，而非输入光标
     enhanced_position: true                  # 无法定位候选框时，在窗口左上角显示候选框：true；false
