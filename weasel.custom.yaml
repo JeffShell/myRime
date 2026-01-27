@@ -31,7 +31,7 @@ patch:
     vertical_text: true                     # 竖排文本：true；false
     text_orientation: horizontal             # 文本排列方向，效果和 `vertical_text` 相同：horizontal；vertical
     candidate_list_layout: linear            # stacked | linear  候选项排列方向（似乎只有在custom内才可以生效）
-    vertical_text_left_to_right: false       # 竖排方向是否从左到右：true；false
+    vertical_text_left_to_right: true       # 竖排方向是否从左到右：true；false
     vertical_text_with_wrap: false           # 文本竖排模式下，自动换行：true；false
     vertical_auto_reverse: false             # 文本竖排模式下，候选窗口位于光标上方时倒序排列：true；false
   

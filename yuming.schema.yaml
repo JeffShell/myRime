@@ -233,9 +233,9 @@ yuhao_macro:
         }
     auto:
       - {
-      type: radio,
-      names: [yuhao_popper_hints, yuhao_autocompletion_filter],
-      states: [☐☐預測提示, ☐☑精確匹配],
+        type: radio,
+        names: [yuhao_popper_hints, yuhao_autocompletion_filter],
+        states: [☐☐預測提示, ☐☑精確匹配],
       }
     space:
       - { type: switch, name: yuhao_hide_space_candidates, states: [☐有空格簡, ☑無空格簡] }
