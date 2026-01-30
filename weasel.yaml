@@ -1,0 +1,317 @@
+# Weasel settings
+# encoding: utf-8
+
+config_version: "0.23"
+
+style:
+  blur_window: false #模糊窗口
+  capture_by_click: false #点击捕获
+  capture_type: none #捕获类型
+  color_scheme: kite #配色方案
+  comment_font_face: "Microsoft Yahei"
+  comment_font_point: 12
+  display_tray_icon: false #显示托盘图标
+  font_face: "Microsoft Yahei" #字体
+  font_point: 40 #字体大小
+  fullscreen: false #全屏
+  horizontal: true #横排显示（true横排，false竖排）
+  inline_preedit: true #嵌入式候选窗单行显示
+  label_font_face: "Microsoft Yahei" #标签/字体
+  label_font_point: 11 #序号字号
+  label_format: "%s" #序号修饰格式
+  layout:
+    align_type: center #对齐类型
+    border: 0 #边界
+    border_width: 3 #填充
+    candidate_spacing: 12 #候选字间距
+    corner_radius: 6 #候选框外圆角半径
+    hilite_padding: 7 #填充
+    hilite_spacing: 6 #序号和候选字之间的间隔
+    margin_x: 8 #候选字左右边距
+    margin_y: 8 #候选字上下边距
+    max_height: 2800 #最大高度
+    max_width: 2800 #最大宽度
+    min_height: 0 #最小高度
+    min_width: 120 #最小宽度
+    round_corner: 6 #候选字背景色块圆角幅度
+    shadow_offset_x: 3
+    shadow_offset_y: 2
+    shadow_radius: 3 #阴影半径
+    spacing: 12 #字距/行距/间隔
+  mark_text: "🐰" #标记文本「小狼毫0.14.3以下版本和小狼狗不支持显示」
+  preedit_type: composition #预编辑类型
+  vertical_text: false #垂直文本
+  vertical_text_left_to_right: false #垂直文本从左到右
+  vertical_text_with_wrap: false #带换行的垂直文本
+
+preset_color_schemes:
+  pink:
+    name: 一品红／poinsettia
+    author: 科技鸢 <topboy@tom.com> QQ群:777808582
+    text_color: 0xffffff #默认文字颜色
+    back_color: 0xabE8CB3C #候选窗背景色
+    border_color: 0xabE8CB3C #候选窗边框颜色
+    candidate_back_color: 0x00000000 #非高亮候选背景颜色 
+    comment_text_color: 0xffffff #opencc注解颜色
+    label_color: 0xffffff #非高亮候选序数值颜色
+    candidate_shadow_color: 0x00000000 #非高亮候选背景块阴影颜色
+    candidate_text_color: 0xffffff #非高亮候选文字颜色
+    hilited_candidate_border_color: 0xE82EE8 #高亮候选背景块描边色
+    hilited_candidate_shadow_color: 0xab13E8E8 #高亮候选背景块阴影颜色
+    hilited_label_color: 0xffffff #高亮候选的序数值颜色
+    hilited_mark_color: 0xDE33C1 #标记高亮的标签小竖块的颜色
+    hilited_shadow_color: 0xab187BDD #编码背景块阴影颜色
+    hilited_text_color: 0x82e6ca #编码文字颜色
+    hilited_back_color: 0x42BA2CDD #编码背景颜色
+    hilited_candidate_text_color: 0xffffff #高亮候选文字颜色
+    hilited_candidate_back_color: 0xa1E82EE8 #高亮候选背景颜色
+    shadow_color: 0xab13E868 #候选窗阴影色，默认全透明（无阴影）
+  windows10:
+    name: "Windows 10"
+    candidate_text_color: 0x000000
+    comment_text_color: 0x888888
+    text_color: 0x000000
+    back_color: 0xffffff
+    border_color: 0xb86700 # 
+    hilited_text_color: 0x000000
+    hilited_back_color: 0xffffff
+    hilited_candidate_text_color: 0xffffff
+    hilited_candidate_back_color: 0xb86700
+    hilited_comment_text_color: 0xffffff
+    hilited_label_color: 0xffffff
+    label_color: 0x888888
+  amber:
+    name: 琥珀绿／Amber green
+    author: 科技鸢 <topboy@tom.com>
+    text_color: 0xffffff #默认文字颜色
+    back_color: 0x72D4BD #候选窗背景色
+    border_color: 0x72D4BD #候选窗边框颜色
+    candidate_back_color: 0x72D4BD #非高亮候选背景颜色    
+    comment_text_color: 0xffffff #opencc注解颜色
+    candidate_shadow_color: 0x00000000 #非高亮候选背景块阴影颜色
+    candidate_text_color: 0xffffff #非高亮候选文字颜色
+    label_color: 0xffffff #非高亮候选序数值颜色
+    hilited_candidate_border_color: 0xc227BA53 #高亮候选背景块描边色
+    hilited_candidate_shadow_color: 0xabD41789 #高亮候选背景块阴影颜色
+    hilited_label_color: 0xffffff #高亮候选的序数值颜色
+    hilited_mark_color: 0xDE33C1 #标记高亮的标签小竖块的颜色
+    hilited_shadow_color: 0xab2EFF58 #编码背景块阴影颜色
+    hilited_text_color: 0x82e6ca #编码文字颜色
+    hilited_back_color: 0x27BA53 #编码背景颜色
+    hilited_candidate_text_color: 0xffffff #高亮候选文字颜色
+    hilited_candidate_back_color: 0xc227BA53 #高亮候选背景颜色
+    shadow_color: 0xab2EFF58 #候选窗阴影色，默认全透明（无阴影）
+
+  hupo:
+    name: 琥珀／Amber
+    author: 五笔小筑
+    text_color: 0xe8f3f6 #默认文字颜色
+    back_color: 0x1589b2 #候选窗背景色
+    border_color: 0x1589b2 #候选窗边框颜色
+    candidate_back_color: 0x1589b2 #非高亮候选背景颜色 
+    comment_text_color: 0x2A6E0D #opencc注解颜色
+    candidate_shadow_color: 0x00000000 #非高亮候选背景块阴影颜色
+    candidate_text_color: 0x000000 #非高亮候选文字颜色
+    label_color: 0x000000 #非高亮候选序数值颜色
+    hilited_candidate_border_color: 0x2EFFF8 #高亮候选背景块描边色
+    hilited_candidate_shadow_color: 0x00000000 #高亮候选背景块阴影颜色
+    hilited_label_color: 0x000000 #高亮候选的序数值颜色
+    hilited_mark_color: 0xDE33C1 #标记高亮的标签小竖块的颜色
+    hilited_shadow_color: 0x3B68FF #编码背景块阴影颜色
+    hilited_text_color: 0x82e6ca #编码文字颜色
+    hilited_back_color: 0x222222 #编码背景颜色
+    hilited_candidate_text_color: 0x000000 #高亮候选文字颜色
+    hilited_candidate_back_color: 0x31B7CC #高亮候选背景颜色
+    shadow_color: 0x3B68FF #候选窗阴影色，默认全透明（无阴影）
+
+  wechat:
+    name: 微信绿／Wechat
+    author: 科技鸢 <topboy@tom.com>
+    back_color: 0xffffff
+    border_color: 0xE2E2E2
+    candidate_text_color: 0x333333
+    candidate_back_color: 0xE6F0D9 #0x10d07c3a（备选框的底色）
+    hilited_back_color: 0x78AF22 #0x000000
+    hilited_candidate_back_color: 0x78AF22
+    hilited_candidate_text_color: 0xF8FBF4
+    hilited_text_color: 0xd3d3d3
+    text_color: 0x333333
+    label_color: 0x303030 #0xc9c9c9（数字和编码颜色）
+    shadow_color: 0x78AF22 #0x919191 #候选窗阴影色，默认全透明（无阴影）
+    hilited_mark_color: 0x919191  #0xDE33C1 #标记高亮的标签小竖块的颜色
+
+  win10:
+      name: 微软／Win10
+      author: 科技鸢 <topboy@tom.com>
+      back_color: 0xF4F4F4
+      border_color: 0xDCDCDC
+      text_color: 0x000000
+      hilited_text_color: 0xF4F4F4
+      hilited_back_color: 0xFFD8A6
+      hilited_candidate_text_color: 0x000000
+      hilited_candidate_back_color: 0xFFD8A6
+      candidate_text_color: 0x000000
+      comment_text_color: 0x888888
+
+  win11:
+    name: 微软／Win11
+    author: 科技鸢 <topboy@tom.com>
+    back_color: 0xf9f9f9
+    border_color: 0xe8e8e8
+    candidate_back_color: 0x00ffffff
+    candidate_shadow_color: 0x00ffffff
+    candidate_text_color: 0x000000
+    hilited_candidate_back_color: 0xE8E8E8
+    hilited_candidate_shadow_color: 0x00ffffff
+    hilited_candidate_text_color: 0x000000
+    hilited_text_color: 0x000000
+    shadow_color: 0x4ccdcdcd
+    text_color: 0x000000
+
+  google:
+    name: 谷歌／Google
+    author: skoj
+    text_color: 0x666666
+    candidate_text_color: 0x000000
+    back_color: 0xFFFFFF
+    border_color: 0xE2E2E2
+    hilited_text_color: 0x000000
+    hilited_back_color: 0xFFFFFF
+    hilited_candidate_text_color: 0xFFFFFF
+    hilited_candidate_back_color: 0xCE7539
+
+  psionics:
+    name: 幽能／Psionics
+    author: 雨過之後、佛振
+    text_color: 0xc2c2c2
+    back_color: 0x444444
+    border_color: 0x444444
+    candidate_text_color: 0xeeeeee
+    hilited_text_color: 0xeeeeee
+    hilited_back_color: 0x444444
+    hilited_candidate_label_color: 0xfafafa
+    hilited_candidate_text_color: 0xfafafa
+    hilited_candidate_back_color: 0xd8bf00
+    comment_text_color: 0x808080
+    hilited_comment_text_color: 0x444444
+  
+  Microsoft:
+    name: 微软／Microsoft 
+    author: XNOM
+    back_color: 0xffffff #候选框 背景色
+    border_color: 0xD77800 #候选框 边框颜色
+    text_color: 0x000000 #已选择字 文字颜色
+    hilited_text_color: 0x000000 #已选择字右侧拼音 文字颜色
+    hilited_back_color: 0xffffff #已选择字右侧拼音 背景色
+    hilited_candidate_text_color: 0xffffff #候选字颜色
+    hilited_candidate_back_color: 0xD77800 #候选字背景色
+    candidate_text_color: 0x000000 #未候选字颜色
+
+  Time:
+    name: 时光／time
+    author: 科技鸢
+    text_color: 0x969483 #打字栏除正在选择字外的字 字体颜色
+    back_color: 0xf2f2f2 #打字栏与候选栏 背景色
+    border_color: 0xf2f2f2 #边框颜色
+    label_color: 0x969483  #候选栏 序号颜色
+    candidate_text_color: 0x000000 #候选栏 未候选字颜色
+    comment_text_color: 0xd28b26 #候选栏 补充说明 字体颜色
+    hilited_text_color: 0x394bdd #打字栏 正在选择的字 字体颜色
+    hilited_back_color: 0xf2f2f2 #打字栏 正在选择的字 背景色
+    hilited_candidate_text_color: 0xff2288 #候选栏 候选字颜色
+    hilited_candidate_back_color: 0xffccff #候选栏 候选字背景色
+
+  summer:
+    name: 夏日清凉／summer
+    author: 空山明月
+    text_color: 0x518465
+    back_color: 0xAAD5BB
+    border_color: 0xAAD5BB
+    candidate_back_color: 0xAAD5BB 
+    comment_text_color: 0x518465
+    hilited_comment_text_color: 0x007814
+    label_color: 0x518465
+    hilited_label_color: 0x007814
+    hilited_mark_color: 0xE0F9FF
+    hilited_text_color: 0x070807
+    hilited_back_color: 0x16C08B
+    hilited_candidate_text_color: 0x007814
+    hilited_candidate_back_color: 0x58F6EA
+    shadow_color: 0x6b68635F
+    hilited_shadow_color: 0x6b000000  
+    hilited_candidate_border_color: 0xFDF8FD
+    hilited_candidate_shadow_color: 0x6b000000
+    
+  zhihu blue:
+    name: 知乎蓝／zhihu blue
+    author: 空山明月
+    text_color: 0x000000
+    back_color: 0xFFBF67
+    border_color: 0xFFBF67
+    candidate_back_color: 0xFFBF67
+    comment_text_color: 0x555555
+    hilited_comment_text_color: 0x000000
+    label_color: 0x555555
+    hilited_label_color: 0x000000
+    hilited_mark_color: 0xFFBF67
+    hilited_text_color: 0x000000
+    hilited_back_color: 0xabFFFFFF
+    hilited_candidate_text_color: 0x000000
+    hilited_candidate_back_color: 0xFFEFD
+    shadow_color: 0x6b000000
+    hilited_shadow_color: 0x6b000000
+    hilited_candidate_border_color: 0xBEF6FF
+    hilited_candidate_shadow_color: 0x6b000000
+    
+  Mac ash:
+    name: Mac／灰
+    author: 科技鸢
+    back_color: 0xEDEDED #候选框 背景色
+    border_color: 0xEDEDED #候选框 边框颜色
+    text_color: 0x000000 #已选择字 文字颜色
+    hilited_text_color: 0xffffff #已选择字右侧拼音 文字颜色#第一候选字颜色
+    hilited_back_color: 0xEDEDED #已选择字右侧拼音 背景色
+    hilited_candidate_text_color: 0xffffff #候选字颜色#第一候选字标签颜色，也就是数字1
+    hilited_candidate_back_color: 0xD05B21 #候选字背景色#第一候选字高亮颜色（背景色）
+    candidate_text_color: 0x000000 #未候选字颜色
+    
+  Mac white:
+   name: Mac／白
+   author: 科技鸢
+   text_color : 0x333333 #编码行文字颜色，24位色值，用十六进制书写方便些，顺序是蓝绿红0xBBGGRR
+   candidate_text_color : 0x333333 #候选项文字颜色，当与文字颜色不同时指定
+   back_color : 0xffffff #底色
+   border_color : 0xE2E2E2 #边框颜色，与底色相同则为无边框的效果
+   hilited_text_color : 0xd3d3d3 高亮文字，即与当前高亮候选对应的那部份输入码
+   hilited_back_color : 0x000000 设定高亮文字的底色，可起到凸显高亮部份的作用
+   hilited_candidate_text_color : 0xffffff #高亮候选项的文字颜色，要醒目！ 
+   hilited_candidate_back_color : 0xF5803B #高亮候选项的底色，若与背景色不同就会显出光棒 
+
+  dark temple:
+    name: 暗堂／Dark Temple
+    author: 佛振
+    text_color: 0x92f6da
+    candidate_text_color: 0xd8e3e6
+    back_color: 0x222222
+    border_color: 0x222222
+    hilited_text_color: 0xffcf9a
+    hilited_back_color: 0x222222
+    hilited_candidate_text_color: 0x92f6da
+    hilited_candidate_back_color: 0x333333
+    comment_text_color: 0x606cff
+    
+  android:
+    name: 安卓／Android
+    author: Patricivs
+    text_color: 0xffffff
+    back_color: 0x99731c
+    border_color: 0x99731c
+    label_color: 0xc18835
+    hilited_text_color: 0x50c4a8
+    hilited_back_color: 0x99731c
+    candidate_text_color: 0xffffff
+    comment_text_color: 0xffffff
+    hilited_candidate_text_color: 0xffffff
+    hilited_comment_text_color: 0xffffff
+    hilited_candidate_back_color: 0x50c4a8
+ 
