@@ -49,7 +49,7 @@ switches:
       - yuhao_popper_hints
       - yuhao_autocompletion_filter
     states: [預測提示, 精確匹配]
-    reset: 0
+    reset: 1
     # Control+Shift+Y
   - name: yuhao_hide_space_candidates
     states: [有空格簡, 無空格簡]
@@ -148,7 +148,7 @@ speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba/=;
   initials: zyxwvutsrqponmlkjihgfedcba/=;
   delimiter: "`"
-  auto_select: true
+  # auto_select: true
   auto_select_pattern: "[qwrtypsdfghjklzxcvbnm]{0,4}[aeiou]|[qwrtypsdfghjklzxcvbnm]{5}"
 
 translator:
@@ -338,6 +338,9 @@ key_binder:
     - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
     - { when: has_menu, accept: minus, send: Page_Up } # 減號上翻頁
     - { when: has_menu, accept: equal, send: Page_Down } # 等號下翻頁
+
+menu:
+  page_size: 2
 
 recognizer:
   import_preset: default
