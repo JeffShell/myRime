@@ -27,6 +27,7 @@ end
 
 local function func(input, env)
     local input_text = env.engine.context.input or ""
+    local hide_space = env.engine.context and env.engine.context.get_option and env.engine.context:get_option("yuhao_hide_space_candidates")
     for cand in input:iter() do
         local ok, genuine = pcall(function() return cand:get_genuine() end)
         if ok and genuine and type(genuine.text) == "string" and core.is_single_char(genuine.text) and env.code_rvdb then
@@ -49,9 +50,14 @@ local function func(input, env)
                         end
                     end
                     if best then
-                        local comment = tostring(best)
-                        yield_candidate_with_comment(cand, comment)
-                        goto continue
+                        -- 如果简码以韵码结尾(aeiou)，视为可顶屏的韵码，始终显示。
+                        -- 否则视为需要空格上屏的空格简，只有当开关允许时才显示。
+                        local is_vowel_code = best:match("[aeiou]$")
+                        if is_vowel_code or (not hide_space) then
+                            local comment = tostring(best)
+                            yield_candidate_with_comment(cand, comment)
+                            goto continue
+                        end
                     end
                 end
             end
