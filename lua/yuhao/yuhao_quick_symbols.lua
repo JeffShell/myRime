@@ -25,6 +25,10 @@ local data = require("yuhao.yuhao_quick_symbols_data")
 
 local function filter(input, env)
     local input_text = env.engine.context.input
+    -- 当预输入仅为分号时不显示候选框，保持预编辑状态以便输入快符字母
+    if input_text == ";" then
+        return
+    end
     -- 如果输入以分号结尾但不是以分号开头（例如 "abc;"），
     -- 则把前面的编码对应的首选候选上屏；如果没有候选则上屏原始编码（去掉分号）。
     if input_text:match("^[^;].-;$") then
