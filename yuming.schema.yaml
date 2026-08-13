@@ -114,6 +114,7 @@ engine:
     - lua_filter@*yuhao.yuhao_chaifen_filter
     - lua_filter@*yuhao.yuhao_charset_prioritizer_common
     - uniquifier
+    - lua_filter@*yuhao.yuhao_quick_symbols
     # - lua_filter@*yuhao.yuhao_add_placeholder_candidate
     - lua_filter@*yuhao.yuhao_unicode_input
 
@@ -143,8 +144,8 @@ schema_name:
   max_code_length: 5
 
 speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba/=
-  initials: zyxwvutsrqponmlkjihgfedcba/=
+  alphabet: zyxwvutsrqponmlkjihgfedcba/=;
+  initials: zyxwvutsrqponmlkjihgfedcba/=;
   delimiter: "`"
   auto_select: true
   auto_select_pattern: "[qwrtypsdfghjklzxcvbnm]{0,4}[aeiou]|[qwrtypsdfghjklzxcvbnm]{5}"
