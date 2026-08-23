@@ -148,8 +148,10 @@ schema_name:
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba/=;
   initials: zyxwvutsrqponmlkjihgfedcba/=;
-  delimiter: "`"
+  delimiter: ""
   # auto_select: true
+  max_code_length: 5
+  auto_clear: max_length
   auto_select_pattern: "[qwrtypsdfghjklzxcvbnm]{0,4}[aeiou]|[qwrtypsdfghjklzxcvbnm]{5}"
 
 translator:
@@ -335,8 +337,7 @@ key_binder:
         accept: "Control+Shift+Y",
         toggle: yuhao_autocompletion_filter,
       } # 輸入預測
-    - { when: has_menu, accept: "/", send: 2 } # '/' 次选 (originally on ';')
-    - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
+    - { when: has_menu, accept: apostrophe, send: 2 } # 引号次选
     - { when: has_menu, accept: minus, send: Page_Up } # 減號上翻頁
     - { when: has_menu, accept: equal, send: Page_Down } # 等號下翻頁
 

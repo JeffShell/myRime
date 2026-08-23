@@ -105,6 +105,86 @@ local function utf8chars(str)
   return chars
 end
 
+-- 讀取剪貼板內容（Windows 下使用 PowerShell，並以 detach 方式啟動，避免同步等待時卡住輸入法）
+local function read_clipboard_text_from_file(file_path)
+  if not file_path or file_path == '' then
+    return nil
+  end
+
+  local file = io.open(file_path, 'r')
+  if not file then
+    return nil
+  end
+
+  local text = file:read('*a')
+  file:close()
+
+  if os.remove then
+    pcall(function()
+      os.remove(file_path)
+    end)
+  end
+
+  if not text or text == '' then
+    return nil
+  end
+
+  text = text:gsub('^%s+', ''):gsub('%s+$', '')
+  if text == '' then
+    return nil
+  end
+
+  return text
+end
+
+local function queue_clipboard_lookup(env)
+  local temp_dir = os.getenv('TEMP') or os.getenv('TMP') or '.'
+  local stamp = tostring(os.time()) .. tostring(math.random(100000, 999999))
+  local file_path = temp_dir .. '\\rime_clipboard_lookup_' .. stamp .. '.txt'
+
+  env.clipboard_query_path = file_path
+  env.clipboard_query_running = true
+
+  local cmd = string.format(
+    'cmd /c start "" /b powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; $txt = Get-Clipboard -Raw -ErrorAction SilentlyContinue; if ($null -ne $txt) { $txt | Out-File -Encoding utf8 -FilePath %q -NoNewline }"',
+    file_path
+  )
+
+  pcall(function()
+    os.execute(cmd)
+  end)
+
+  return file_path
+end
+
+local function build_clipboard_lookup_comment(data)
+  local parts = {}
+  if data and data.chaifen and data.chaifen ~= '' then
+    table.insert(parts, '〔' .. data.chaifen .. '〕')
+  end
+  if data and data.code and data.code ~= '' then
+    table.insert(parts, data.code)
+  end
+  if data and data.pinyin and data.pinyin ~= '' then
+    table.insert(parts, data.pinyin:gsub('_', ' '))
+  end
+  if data and data.comment and data.comment ~= '' then
+    table.insert(parts, data.comment)
+  end
+  if data and data.charset and data.charset ~= '' then
+    table.insert(parts, data.charset)
+  end
+  if data and data.unicode and data.unicode ~= '' then
+    table.insert(parts, data.unicode)
+  end
+
+  if #parts == 0 then
+    return '剪貼板查詢'
+  end
+
+  return table.concat(parts, ' ')
+end
+
 --[[
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 格式化與解析函數
@@ -403,6 +483,42 @@ end
 ]]
 local function filter(input, env)
   local context = env.engine.context
+  local input_text = context.input or ''
+
+  -- 先處理上一個後台剪貼板查詢的結果；這一步不會阻塞，避免卡住整個輸入法。
+  if env.clipboard_query_path then
+    local clipboard_text = read_clipboard_text_from_file(env.clipboard_query_path)
+    env.clipboard_query_path = nil
+    env.clipboard_query_running = false
+
+    if clipboard_text then
+      local chars = utf8chars(clipboard_text)
+      local lookup_char = chars[1]
+      if lookup_char and lookup_char ~= '' then
+        local rvdb = context:get_option('yuhao_chaifen_source') and env.rvdb_tw or env.rvdb
+        local raw_data = rvdb:lookup(lookup_char)
+        if raw_data and raw_data ~= '' then
+          local data = parse_chaifen_data(raw_data, env.has_all_roots_code)
+          if data then
+            yield(Candidate('clipboard', 1, 1, lookup_char, build_clipboard_lookup_comment(data)))
+            return
+          end
+        end
+        yield(Candidate('clipboard', 1, 1, lookup_char, '剪貼板查詢'))
+        return
+      end
+    end
+  end
+
+  -- 當輸入前綴為 ` 時，啟動一個 detached 的剪貼板查詢；由後續輸入流讀取結果，避免卡死。
+  if input_text == '`' then
+    if env.clipboard_query_running then
+      return
+    end
+
+    queue_clipboard_lookup(env)
+    return
+  end
   
   -- 如果關閉了拆分功能，直接傳遞所有候選詞
   if context:get_option('yuhao_chaifen.off') then
@@ -461,6 +577,9 @@ end
   @param env: 環境對象, 用於存儲初始化結果
 ]]
 local function init(env)
+  env.clipboard_query_running = false
+  env.clipboard_query_path = nil
+
   -- 從 schema 配置中讀取數據庫文件名
   -- 配置路徑: schema_name/chaifen (大陸標準)
   -- 配置路徑: schema_name/chaifen_tw (台灣標準)
