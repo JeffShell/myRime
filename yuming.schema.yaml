@@ -342,7 +342,8 @@ key_binder:
     - { when: has_menu, accept: equal, send: Page_Down } # 等號下翻頁
 
 menu:
-  page_size: 2
+  page_size: 5
+  alternative_select_labels: [ "天", "地", "玄", "黄", "宇", "宙", "洪", "荒", "日" ]
 
 recognizer:
   import_preset: default

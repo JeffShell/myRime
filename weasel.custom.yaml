@@ -15,7 +15,7 @@ patch:
     font_point: 30
     horizontal: false
     inline_preedit: true
-    label_format: ""
+    label_format: "%s"
     layout: {border_width: 0, candidate_spacing: 10, hilite_padding_x: 20, hilite_padding_y: 10, hilite_spacing: 10, margin_x: 0, margin_y: 0, min_height: 0, min_width: 0, round_corner: 8, shadow_offset_x: 0, shadow_offset_y: 0, shadow_radius: 0, spacing: 10}
     preedit_type: composition
   "style/color_scheme": "尼尔暗"
